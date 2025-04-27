@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Store Control Panel</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Control Panel</h2>
+    <ul>
+      <li><a href="#dashboard">Dashboard</a></li>
+      <li><a href="#inventory">Inventory</a></li>
+      <li><a href="#orders">Orders</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <h1>Dashboard</h1>
+    <canvas id="salesChart"></canvas>
+
+    <!-- Inventory Section -->
+    <div id="inventory">
+      <h2>Inventory</h2>
+      <form id="itemForm">
+        <input type="text" id="itemName" placeholder="Item Name" required>
+        <input type="number" id="itemPrice" placeholder="Item Price" required>
+
+        <!-- Category Dropdown -->
+        <select id="itemCategory" required>
+          <option value="Electronics">Electronics</option>
+          <option value="Laptops">Laptops</option>
+          <option value="GPUs">GPUs</option>
+          <option value="CPUs">CPUs</option>
+        </select>
+
+        <!-- Brand Dropdown -->
+        <select id="itemBrand" required>
+          <option value="NVIDIA">NVIDIA</option>
+          <option value="AMD">AMD</option>
+          <option value="Intel">Intel</option>
+          <option value="HP">HP</option>
+          <option value="Apple">Apple</option>
+        </select>
+
+        <button type="submit">Add Item</button>
+      </form>
+      <ul id="itemList"></ul>
+    </div>
+
+    <!-- Orders Section -->
+    <div id="orders">
+      <h2>Customer Orders</h2>
+
+      <!-- Order Form -->
+      <form id="orderForm">
+        <input type="text" id="orderCustomerName" placeholder="Customer Name" required>
+        <input type="text" id="orderItems" placeholder="Items (comma-separated)" required>
+        <input type="number" id="orderQuantity" placeholder="Quantity" required>
+
+        <!-- Order Status Dropdown -->
+        <select id="orderStatus" required>
+          <option value="Pending">Pending</option>
+          <option value="Confirmed">Confirmed</option>
+          <option value="Sent">Sent</option>
+          <option value="Delivered">Delivered</option>
+          <option value="Cancelled">Cancelled</option>
+          <option value="Sent for return">Sent for return</option>
+          <option value="Returned">Returned</option>
+        </select>
+
+        <button type="submit">Add Order</button>
+      </form>
+
+      <ul id="orderList"></ul>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
